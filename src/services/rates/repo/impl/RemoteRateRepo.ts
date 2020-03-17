@@ -1,6 +1,6 @@
 import * as knex from 'knex';
 import { chain, map } from 'ramda';
-import { Task, of as taskOf } from 'folktale/concurrency/task';
+import { of as taskOf, Task } from 'folktale/concurrency/task';
 
 import { DbError, Timeout } from '../../../../errorHandling';
 import { PgDriver } from '../../../../db/driver';
@@ -8,7 +8,7 @@ import { AsyncMget } from '../../repo';
 import { RateMgetParams } from '../../../../types';
 import makeSql from './sql';
 import { RateWithPairIds } from '../../../rates';
-import { BigNumber } from '@waves/data-entities';
+import { BigNumber } from '@powerchain/data-entities';
 
 const pg = knex({ client: 'pg' });
 

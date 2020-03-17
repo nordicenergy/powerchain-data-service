@@ -16,10 +16,10 @@ const columns = {
   sender_public_key: 'addr.public_key',
 
   amount_asset: pg.raw(
-    "coalesce(o1.order->'assetPair'->>'amountAsset', 'WAVES')"
+    "coalesce(o1.order->'assetPair'->>'amountAsset', 'POWERCHAIN')"
   ),
   price_asset: pg.raw(
-    "coalesce(o1.order->'assetPair'->>'priceAsset', 'WAVES')"
+    "coalesce(o1.order->'assetPair'->>'priceAsset', 'POWERCHAIN')"
   ),
 
   // satoshi

@@ -1,5 +1,5 @@
-import { reject, isNil } from 'ramda';
-import { BigNumber } from '@waves/data-entities';
+import { isNil, reject } from 'ramda';
+import { BigNumber } from '@powerchain/data-entities';
 import { parseDate } from '../../utils/parseDate';
 import { parseBool } from '../utils/parseBool';
 import { parseArrayQuery } from '../utils/parseArrayQuery';

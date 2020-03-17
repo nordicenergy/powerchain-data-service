@@ -1,13 +1,13 @@
-import { BigNumber } from '@waves/data-entities';
-import { Maybe, of as maybeOf, fromNullable } from 'folktale/maybe';
-import { path, complement } from 'ramda';
+import { BigNumber } from '@powerchain/data-entities';
+import { fromNullable, Maybe, of as maybeOf } from 'folktale/maybe';
+import { complement, path } from 'ramda';
 
 import { AssetIdsPair, CacheSync } from '../../../../types';
-import { WavesId, flip, pairHasWaves } from '../../data';
+import { flip, pairHasPowerChain, PowerChainId } from '../../data';
 import { inv, safeDivide } from '../../util';
 import { isDefined, map2 } from '../../../../utils/fp/maybeOps';
 
-import { RateWithPairIds } from '../../../rates'
+import { RateWithPairIds } from '../../../rates';
 
 type RateLookupTable = {
   [amountAsset: string]: {
@@ -20,7 +20,7 @@ type RateLookupTable = {
    
    lookup(amountAsset, priceAsset) || ( lookup(amountAsset, waves) / lookup(priceAsset, waves) }
    
-   where lookup = getFromTable(asset1, asset2) || 1 / getFromtable(asset2, asset1)   
+   where lookup = getFromTable(asset1, asset2) || 1 / getFromtable(asset2, asset1)
 */
 export default class RateInfoLookup
   implements Omit<CacheSync<AssetIdsPair, RateWithPairIds>, 'set'> {
@@ -42,8 +42,8 @@ export default class RateInfoLookup
       .orElse(() => lookup(pair, true))
       .orElse(() =>
         maybeOf(pair)
-          .filter(complement(pairHasWaves))
-          .chain(pair => this.lookupThroughWaves(pair))
+          .filter(complement(pairHasPowerChain))
+          .chain(pair => this.lookupThroughPowerChain(pair))
       );
   }
 
@@ -77,16 +77,16 @@ export default class RateInfoLookup
       }));
   }
 
-  private lookupThroughWaves(pair: AssetIdsPair): Maybe<RateWithPairIds> {
+  private lookupThroughPowerChain(pair: AssetIdsPair): Maybe<RateWithPairIds> {
     return map2(
       (info1, info2) => safeDivide(info1.rate, info2.rate),
       this.get({
         amountAsset: pair.amountAsset,
-        priceAsset: WavesId,
+        priceAsset: PowerChainId,
       }),
       this.get({
         amountAsset: pair.priceAsset,
-        priceAsset: WavesId,
+        priceAsset: PowerChainId,
       })
     ).map(rate => ({
       amountAsset: pair.amountAsset,

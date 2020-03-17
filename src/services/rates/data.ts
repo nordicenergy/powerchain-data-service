@@ -1,15 +1,15 @@
 import { isSymmetric } from './util';
 import { AssetIdsPair } from '../../types';
 
-export const WavesId: string = 'WAVES';
+export const PowerChainId: string = 'POWERCHAIN';
 
 export const pairIsSymmetric = isSymmetric((p: AssetIdsPair) => [
   p.amountAsset,
   p.priceAsset,
 ]);
 
-export const pairHasWaves = (pair: AssetIdsPair): boolean =>
-  pair.amountAsset === WavesId || pair.priceAsset === WavesId;
+export const pairHasPowerChain = (pair: AssetIdsPair): boolean =>
+  pair.amountAsset === PowerChainId || pair.priceAsset === PowerChainId;
 
 export function flip(pair: AssetIdsPair): AssetIdsPair {
   return {
@@ -25,18 +25,18 @@ export const pairsEq = (pair1: AssetIdsPair, pair2: AssetIdsPair): boolean =>
 export function generatePossibleRequestItems(
   pair: AssetIdsPair
 ): AssetIdsPair[] {
-  if (pair.amountAsset === WavesId || pair.priceAsset === WavesId) {
+  if (pair.amountAsset === PowerChainId || pair.priceAsset === PowerChainId) {
     return [pair, flip(pair)];
   }
 
   const wavesL: AssetIdsPair = {
     amountAsset: pair.amountAsset,
-    priceAsset: WavesId,
+    priceAsset: PowerChainId,
   };
 
   const wavesR: AssetIdsPair = {
     amountAsset: pair.priceAsset,
-    priceAsset: WavesId,
+    priceAsset: PowerChainId,
   };
 
   return [wavesL, flip(wavesL), wavesR, flip(wavesR)];

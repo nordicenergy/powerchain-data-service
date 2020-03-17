@@ -1,6 +1,6 @@
 import { renameKeys } from 'ramda-adjunct';
 import { compose, omit } from 'ramda';
-import { Asset } from '@waves/data-entities';
+import { Asset } from '@powerchain/data-entities';
 import { AssetDbResponse } from './types';
 
 export const transformDbResponse = (raw: AssetDbResponse): Asset =>

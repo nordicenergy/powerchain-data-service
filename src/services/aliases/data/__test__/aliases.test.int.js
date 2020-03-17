@@ -3,7 +3,7 @@ const { loadConfig } = require('../../../../loadConfig');
 const options = loadConfig();
 const create = require('../..').default;
 
-const ADDRESS = '3PDSJEfqQQ8BNk7QtiwAFPq7SgyAh5kzfBy';
+const ADDRESS = '3PNdBybMvsymPyLH4j8ZMTfFQkwPFka8fsN';
 
 describe('Aliases', () => {
   const service = create({

@@ -1,4 +1,4 @@
-import { BigNumber } from '@waves/data-entities';
+import { BigNumber } from '@powerchain/data-entities';
 import { Task } from 'folktale/concurrency/task';
 import { Maybe } from 'folktale/maybe';
 
@@ -6,7 +6,7 @@ import { tap } from '../../utils/tap';
 import { AssetIdsPair, RateMgetParams } from '../../types';
 import { AppError, DbError, Timeout } from '../../errorHandling';
 
-import { partitionByPreCount, AsyncMget, RateCache } from './repo';
+import { AsyncMget, partitionByPreCount, RateCache } from './repo';
 import { RateCacheKey } from './repo/impl/RateCache';
 import RateInfoLookup from './repo/impl/RateInfoLookup';
 import { isEmpty } from '../../utils/fp/maybeOps';

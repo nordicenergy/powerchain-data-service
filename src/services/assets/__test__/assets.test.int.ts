@@ -3,7 +3,6 @@ const http = require('http');
 import { parse } from '../../../utils/json';
 
 import createService, { createCache } from '../index';
-
 // dependencies
 import { createPgDriver } from '../../../db';
 import { loadConfig } from '../../../loadConfig';
@@ -70,9 +69,9 @@ describe('Assets service', () => {
   });
 
   describe('search', () => {
-    it('fetches WAVES by ticker', async done => {
+    it('fetches POWERCHAIN by ticker', async done => {
       service
-        .search({ ticker: 'WAVES', limit: 1, sort: SortOrder.Descending })
+        .search({ ticker: 'POWERCHAIN', limit: 1, sort: SortOrder.Descending })
         .run()
         .promise()
         .then(xs => {
@@ -82,9 +81,9 @@ describe('Assets service', () => {
         .catch(e => done(JSON.stringify(e)));
     });
 
-    it('fetches non-WAVES asset by ticker (BTC)', async done => {
+    it('fetches non-POWERCHAIN asset by ticker (BTC)', async done => {
       http.get(
-        'http://nodes.wavesnodes.com/assets/details/8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS',
+        'http://nodes.powerchain.xyz/assets/details/8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS',
         (res: EventEmitter) => {
           let data: string = '';
           res.on('data', (chunk: string) => (data += chunk));
@@ -133,9 +132,9 @@ describe('Assets service', () => {
         .promise()
         .then(as => {
           expect(as.data.length).toBeGreaterThan(100);
-          // make sure WAVES is included
+          // make sure POWERCHAIN is included
           expect(
-            as.data.find(a => a.data && a.data.ticker === 'WAVES')
+            as.data.find(a => a.data && a.data.ticker === 'POWERCHAIN')
           ).not.toBeUndefined();
         }));
   });

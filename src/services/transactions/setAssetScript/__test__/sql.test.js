@@ -2,10 +2,10 @@ const sql = require('../sql');
 const filterValues = [{
   script: 'base64:somescript',
 }, {
-  assetId: 'WAVES'
+  assetId: 'POWERCHAIN'
 }, {
   script: 'base64:somescript',
-  assetId: 'WAVES'
+  assetId: 'POWERCHAIN'
 }];
 
 describe('Sql search by type-specific filters', () => {

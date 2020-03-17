@@ -1,33 +1,24 @@
-import { BigNumber } from '@waves/data-entities';
-import { Interval } from '../../types';
+import { BigNumber } from '@powerchain/data-entities';
+import { candle, Candle, CandleInterval, interval, Interval, list, List, Unit } from '../../types';
 
 import {
+  always,
+  assoc,
   compose,
   curry,
+  evolve,
   groupBy,
-  map,
-  sort,
-  toPairs,
-  assoc,
-  always,
   identity,
   ifElse,
+  map,
   merge,
-  evolve,
   omit,
+  sort,
+  toPairs,
 } from 'ramda';
 import { renameKeys } from 'ramda-adjunct';
-import {
-  interval,
-  list,
-  candle,
-  List,
-  Candle,
-  Unit,
-  CandleInterval,
-} from '../../types';
 import { concatAll } from '../../utils/fp/concatAll';
-import { floor, ceil, add, trunc } from '../../utils/date';
+import { add, ceil, floor, trunc } from '../../utils/date';
 import { candleMonoid } from './candleMonoid';
 import { CandlesSearchRequest } from '.';
 

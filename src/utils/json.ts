@@ -1,5 +1,5 @@
-import * as createParser from '@waves/parse-json-bignumber';
-import { BigNumber } from '@waves/data-entities';
+import * as createParser from '@powerchain/parse-json-bignumber';
+import { BigNumber } from '@powerchain/data-entities';
 import { toBigNumber } from './bigNumber';
 
 const parser = createParser<BigNumber>({

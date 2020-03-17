@@ -53,7 +53,7 @@ const selectFromFiltered = pipe(
             tx_uid: 't.tx_uid',
             height: 't.height',
             sender_uid: 't.sender_uid',
-            asset_id: pg.raw(`coalesce(a.asset_id,'WAVES')`),
+            asset_id: pg.raw(`coalesce(a.asset_id,'POWERCHAIN')`),
             attachment: 't.attachment',
             amount: pg.raw(
               'tfs.amount * 10^(-coalesce(a.decimals, 8))::double precision'

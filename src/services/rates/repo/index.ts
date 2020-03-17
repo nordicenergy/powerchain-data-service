@@ -1,11 +1,7 @@
-import { partition, chain, uniqWith } from 'ramda';
+import { chain, partition, uniqWith } from 'ramda';
 import { AssetIdsPair, CacheSync } from '../../../types';
-import { BigNumber } from '@waves/data-entities';
-import {
-  pairIsSymmetric,
-  pairsEq,
-  generatePossibleRequestItems,
-} from '../data';
+import { BigNumber } from '@powerchain/data-entities';
+import { generatePossibleRequestItems, pairIsSymmetric, pairsEq } from '../data';
 import { RateCacheKey } from './impl/RateCache';
 import { Task } from 'folktale/concurrency/task';
 import { RateWithPairIds } from '../../rates';

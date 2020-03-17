@@ -1,4 +1,4 @@
-import { BigNumber } from '@waves/data-entities';
+import { BigNumber } from '@powerchain/data-entities';
 import { Monoid } from '../../types/monoid';
 import { RawCandle } from './transformResults';
 

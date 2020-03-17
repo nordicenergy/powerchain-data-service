@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Waves APIs in general and this service in particular
+about: Suggest an idea for PowerChain APIs in general and this service in particular
 title: "[FEATURE REQUEST]"
 labels: enhancement
 assignees: ''

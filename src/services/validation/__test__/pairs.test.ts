@@ -1,16 +1,16 @@
 import { validatePairs } from '../pairs';
 
 import { PairOrderingServiceImpl } from '../../PairOrderingService';
-import { asset, AssetInfo, ServiceMget, Asset, list } from '../../../types';
+import { asset, Asset, AssetInfo, list, ServiceMget } from '../../../types';
 import { of as taskOf } from 'folktale/concurrency/task';
 
 describe('Pairs validation', () => {
   const MATCHER = 'matcher';
-  const WAVES = 'WAVES';
+  const POWERCHAIN = 'POWERCHAIN';
   const BTC = 'BTC';
 
   const pairOrderingService = new PairOrderingServiceImpl({
-    [MATCHER]: [BTC, WAVES],
+    [MATCHER]: [BTC, POWERCHAIN],
   });
 
   const assetsMget: ServiceMget<string[], Asset> = {
@@ -20,7 +20,7 @@ describe('Pairs validation', () => {
           assetIds.map(aid => {
             switch (aid) {
               case BTC:
-              case WAVES:
+              case POWERCHAIN:
                 return asset({} as AssetInfo);
               default:
                 return asset(null);
@@ -35,21 +35,21 @@ describe('Pairs validation', () => {
   describe('asset order validation', () => {
     it('known matcher, right order, pass', () =>
       expect(
-        validate(MATCHER, [{ amountAsset: WAVES, priceAsset: BTC }])
+        validate(MATCHER, [{ amountAsset: POWERCHAIN, priceAsset: BTC }])
           .run()
           .promise()
       ).resolves.not.toThrow());
 
     it('unknown matcher, existing assets, pass', () =>
       expect(
-        validate('', [{ amountAsset: WAVES, priceAsset: BTC }])
+        validate('', [{ amountAsset: POWERCHAIN, priceAsset: BTC }])
           .run()
           .promise()
       ).resolves.not.toThrow());
 
     it('known matcher, wrong order, fail', () =>
       expect(
-        validate(MATCHER, [{ amountAsset: BTC, priceAsset: WAVES }])
+        validate(MATCHER, [{ amountAsset: BTC, priceAsset: POWERCHAIN }])
           .run()
           .promise()
       ).rejects.toMatchSnapshot());

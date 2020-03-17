@@ -1,12 +1,12 @@
 import { Task, waitAll } from 'folktale/concurrency/task';
-import { Maybe, empty as nothing, of as just } from 'folktale/maybe';
+import { empty as nothing, Maybe, of as just } from 'folktale/maybe';
 import { InitError } from '../../errorHandling';
 import { AssetIdsPair } from '../../types';
 import { loadMatcherSettings } from './loadMatcherSettings';
 
-import { zipObj, map } from 'ramda';
+import { map, zipObj } from 'ramda';
 
-import { createOrderPair, TOrderPair } from '@waves/assets-pairs-order';
+import { createOrderPair, TOrderPair } from '@powerchain/assets-pairs-order';
 
 export interface PairOrderingService {
   isCorrectOrder(matcher: string, pair: AssetIdsPair): Maybe<boolean>;

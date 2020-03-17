@@ -1,5 +1,5 @@
 const sql = require('../query');
-const { BigNumber } = require('@waves/data-entities');
+const { BigNumber } = require('@powerchain/data-entities');
 
 describe('candles daemon sql test', () => {
   it('truncate table', () => {

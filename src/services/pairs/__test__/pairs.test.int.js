@@ -6,7 +6,7 @@ const options = loadConfig();
 const pgDriver = createPgDriver(options);
 const create = require('../').default;
 const { create: createCache } = require('../cache');
-const { BigNumber } = require('@waves/data-entities');
+const { BigNumber } = require('@powerchain/data-entities');
 let pair;
 
 const cache = createCache(1000, 5000);
@@ -51,7 +51,7 @@ describe('Pairs', () => {
       expect(result.data).toHaveProperty('high', pair.high);
       expect(result.data).toHaveProperty('volume', pair.volume);
       expect(result.data).toHaveProperty('quoteVolume', pair.quote_volume);
-      expect(result.data).toHaveProperty('volumeWaves', pair.volume_waves);
+      expect(result.data).toHaveProperty('volumePowerChain', pair.volume_waves);
       expect(result.data).toHaveProperty(
         'weightedAveragePrice',
         pair.weighted_average_price
@@ -102,7 +102,7 @@ describe('Pairs', () => {
       expect(result.data[0].data).toHaveProperty('lastPrice', pair.last_price);
       expect(result.data[0].data).toHaveProperty('volume', pair.volume);
       expect(result.data[0].data).toHaveProperty(
-        'volumeWaves',
+        'volumePowerChain',
         pair.volume_waves
       );
     });
@@ -134,7 +134,7 @@ describe('Pairs', () => {
       const result = await service
         .search({
           matcher: options.matcher.defaultMatcherAddress,
-          search_by_assets: ['WAVES', 'BTC'],
+          search_by_assets: ['POWERCHAIN', 'BTC'],
           limit: 2,
         })
         .run()
@@ -146,7 +146,7 @@ describe('Pairs', () => {
         expect(pair.data.firstPrice).toBeInstanceOf(BigNumber);
         expect(pair.data.lastPrice).toBeInstanceOf(BigNumber);
         expect(pair.data.volume).toBeInstanceOf(BigNumber);
-        expect(pair.data.volumeWaves).toBeInstanceOf(BigNumber);
+        expect(pair.data.volumePowerChain).toBeInstanceOf(BigNumber);
       });
     });
   });

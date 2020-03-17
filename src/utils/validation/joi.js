@@ -1,6 +1,6 @@
 const rawJoi = require('joi');
 
-const { BigNumber } = require('@waves/data-entities');
+const { BigNumber } = require('@powerchain/data-entities');
 const regex = require('../regex');
 const { interval } = require('../../types');
 const { div } = require('../interval');
@@ -29,7 +29,7 @@ module.exports = rawJoi
     name: 'string',
     language: {
       base58: 'must be a valid base58 string',
-      assetId: 'must be a valid base58 string or "WAVES"',
+      assetId: 'must be a valid base58 string or "POWERCHAIN"',
       base64Prefixed: 'must be a string of "base64:${base64EncodedString}"',
       noNullChars: 'must not contain unicode null characters',
       saneForDbLike: 'must not end with unescaped slash symbol',

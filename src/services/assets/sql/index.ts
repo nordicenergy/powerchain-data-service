@@ -7,7 +7,7 @@ import { AssetsSearchRequest } from '../types';
 const pg = knex({ client: 'pg' });
 
 /*
- * coalesce(a.first_appeared_on_height, 0) is used because of first_appeared_on_height for WAVES is null
+ * coalesce(a.first_appeared_on_height, 0) is used because of first_appeared_on_height for POWERCHAIN is null
  * coalesce(addr.address, '') is used for the same reason
  */
 

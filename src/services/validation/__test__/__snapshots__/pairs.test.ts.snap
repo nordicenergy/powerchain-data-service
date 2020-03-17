@@ -7,7 +7,7 @@ ValidationError {
     "pairs": Array [
       Object {
         "amountAsset": "BTC",
-        "priceAsset": "WAVES",
+        "priceAsset": "POWERCHAIN",
       },
     ],
   },

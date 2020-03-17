@@ -1,6 +1,6 @@
-import { compose, pick, map } from 'ramda';
+import { compose, map, pick } from 'ramda';
 import { renameKeys } from 'ramda-adjunct';
-import { BigNumber } from '@waves/data-entities';
+import { BigNumber } from '@powerchain/data-entities';
 import { list, List, pair, Pair, PairInfo } from '../../types';
 
 export type PairDbResponse = {
@@ -25,7 +25,7 @@ const pairDataFields = [
   'weightedAveragePrice',
   'volume',
   'quoteVolume',
-  'volumeWaves',
+  'volumePowerChain',
   'txsCount',
 ];
 
@@ -36,7 +36,7 @@ const pickPairFields = pick(pairDataFields);
 const renamePairFields = renameKeys({
   first_price: 'firstPrice',
   last_price: 'lastPrice',
-  volume_waves: 'volumeWaves',
+  volume_waves: 'volumePowerChain',
   weighted_average_price: 'weightedAveragePrice',
   quote_volume: 'quoteVolume',
   txs_count: 'txsCount',

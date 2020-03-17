@@ -1,7 +1,7 @@
-import { BigNumber } from '@waves/data-entities';
-import { compose, tail, init, split } from 'ramda';
-import { IMain } from 'pg-promise';
+import { BigNumber } from '@powerchain/data-entities';
+import { compose, init, split, tail } from 'ramda';
 import * as pgPromise from 'pg-promise';
+import { IMain } from 'pg-promise';
 
 import { toBigNumber } from '../../utils/bigNumber';
 

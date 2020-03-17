@@ -1,25 +1,25 @@
 import { PairOrderingServiceImpl } from '..';
-import { of as just, empty as nothing } from 'folktale/maybe';
+import { empty as nothing, of as just } from 'folktale/maybe';
 
 describe('PairOrderingService', () => {
   const MATCHER = '3PJjwFREg8F9V6Cp9fnUuEwRts6HQQa5nfP';
-  const WAVES = 'WAVES';
+  const POWERCHAIN = 'POWERCHAIN';
   const BTC = 'BTC';
   const matcherSettings = {
-    [MATCHER]: [BTC, WAVES],
+    [MATCHER]: [BTC, POWERCHAIN],
   };
   const service = new PairOrderingServiceImpl(matcherSettings);
 
   it('should work if both assets are in matcher settings', () => {
     const expected = {
-      amountAsset: WAVES,
+      amountAsset: POWERCHAIN,
       priceAsset: BTC,
     };
-    expect(service.getCorrectOrder(MATCHER, [WAVES, BTC])).toEqual(
+    expect(service.getCorrectOrder(MATCHER, [POWERCHAIN, BTC])).toEqual(
       just(expected)
     );
 
-    expect(service.getCorrectOrder(MATCHER, [BTC, WAVES])).toEqual(
+    expect(service.getCorrectOrder(MATCHER, [BTC, POWERCHAIN])).toEqual(
       just(expected)
     );
 
@@ -28,7 +28,7 @@ describe('PairOrderingService', () => {
     expect(
       service.isCorrectOrder(MATCHER, {
         amountAsset: BTC,
-        priceAsset: WAVES,
+        priceAsset: POWERCHAIN,
       })
     ).toEqual(just(false));
   });
@@ -37,13 +37,13 @@ describe('PairOrderingService', () => {
     const ASSET = 'someasset';
     const expected = {
       amountAsset: ASSET,
-      priceAsset: WAVES,
+      priceAsset: POWERCHAIN,
     };
-    expect(service.getCorrectOrder(MATCHER, [WAVES, ASSET])).toEqual(
+    expect(service.getCorrectOrder(MATCHER, [POWERCHAIN, ASSET])).toEqual(
       just(expected)
     );
 
-    expect(service.getCorrectOrder(MATCHER, [ASSET, WAVES])).toEqual(
+    expect(service.getCorrectOrder(MATCHER, [ASSET, POWERCHAIN])).toEqual(
       just(expected)
     );
 
@@ -51,7 +51,7 @@ describe('PairOrderingService', () => {
 
     expect(
       service.isCorrectOrder(MATCHER, {
-        amountAsset: WAVES,
+        amountAsset: POWERCHAIN,
         priceAsset: ASSET,
       })
     ).toEqual(just(false));
@@ -83,10 +83,10 @@ describe('PairOrderingService', () => {
   });
 
   it('should return Nothing if asking for unknown matcher', () => {
-    expect(service.getCorrectOrder('', [WAVES, BTC])).toEqual(nothing());
+    expect(service.getCorrectOrder('', [POWERCHAIN, BTC])).toEqual(nothing());
 
     expect(
-      service.isCorrectOrder('', { amountAsset: WAVES, priceAsset: BTC })
+      service.isCorrectOrder('', { amountAsset: POWERCHAIN, priceAsset: BTC })
     ).toEqual(nothing());
   });
 });

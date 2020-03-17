@@ -19,7 +19,7 @@ describe('sql query results transformation', () => {
       firstPrice: 1.2,
       lastPrice: 2.1,
       volume: 100.1,
-      volumeWaves: 10.2,
+      volumePowerChain: 10.2,
     });
   });
 
@@ -42,7 +42,7 @@ describe('sql query results transformation', () => {
             firstPrice: 1.2,
             lastPrice: 2.1,
             volume: 100.1,
-            volumeWaves: 10.2,
+            volumePowerChain: 10.2,
           }),
           amountAsset: '111',
           priceAsset: '222',

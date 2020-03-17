@@ -1,4 +1,4 @@
-const { BigNumber } = require('@waves/data-entities');
+const { BigNumber } = require('@powerchain/data-entities');
 
 const { where } = require('../../../../../utils/db/knex');
 

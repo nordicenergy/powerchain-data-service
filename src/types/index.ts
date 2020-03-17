@@ -1,8 +1,8 @@
 import { Task } from 'folktale/concurrency/task';
 import { Maybe } from 'folktale/maybe';
-import { Asset as AssetInfo, BigNumber } from '@waves/data-entities';
+import { Asset as AssetInfo, BigNumber } from '@powerchain/data-entities';
 import { AppError } from '../errorHandling';
-import { toSerializable, Serializable } from './serializable';
+import { Serializable, toSerializable } from './serializable';
 import { Interval, interval, Unit } from './interval';
 import { List, list } from './list';
 
@@ -109,7 +109,7 @@ export type PairInfo = {
   weightedAveragePrice: BigNumber;
   volume: BigNumber;
   quoteVolume: BigNumber;
-  volumeWaves: BigNumber;
+  volumePowerChain: BigNumber;
   txsCount: number;
 };
 

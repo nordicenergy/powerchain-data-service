@@ -39,7 +39,7 @@ const byTimeStamp = comparator => ts =>
   });
 
 const byAssetId = ifElse(
-  equals('WAVES'),
+  equals('POWERCHAIN'),
   () => where('asset_uid', null),
   assetId =>
     where('asset_uid', function() {

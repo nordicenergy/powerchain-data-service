@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:12-alpine
 
 # enable node_modules caching layer
 RUN apk add --no-cache tini git

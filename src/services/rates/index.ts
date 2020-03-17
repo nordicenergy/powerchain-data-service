@@ -1,14 +1,6 @@
-import { BigNumber } from '@waves/data-entities';
+import { BigNumber } from '@powerchain/data-entities';
 import { withStatementTimeout } from '../../db/driver';
-import {
-  ServiceMget,
-  Rate,
-  RateMgetParams,
-  list,
-  rate,
-  RateInfo,
-  AssetIdsPair,
-} from '../../types';
+import { AssetIdsPair, list, rate, Rate, RateInfo, RateMgetParams, ServiceMget } from '../../types';
 import { RateSerivceCreatorDependencies } from '../../services';
 import RateEstimator from './RateEstimator';
 import RemoteRateRepo from './repo/impl/RemoteRateRepo';

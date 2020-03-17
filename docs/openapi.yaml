@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: 0.28.1
-  title: Waves Data Service
-  description: This is a a public Waves Data Services API documentation. The goal of the API is to provide a simple and convenient way to get data from Waves blockchain.
+  title: PowerChain Data Service
+  description: This is a a public PowerChain Data Services API documentation. The goal of the API is to provide a simple and convenient way to get data from PowerChain blockchain.
 servers:
   - url: /v0
 tags:
@@ -60,7 +60,7 @@ paths:
               type: string
         - in: query
           name: ticker
-          description: 'Examples: WAVES, BTC, \*. A wildcard request **ticker=***  returns all assets with tickers.'
+          description: 'Examples: PWRC, BTC, \*. A wildcard request **ticker=***  returns all assets with tickers.'
           required: false
           example: '*'
           schema:
@@ -189,7 +189,7 @@ paths:
     get:
       tags:
         - pairs
-      summary: 1) Get list of pairs info by serialized pairs list; 2) Get all list of pairs info by limit (sort by volume in WAVES)
+      summary: 1) Get list of pairs info by serialized pairs list; 2) Get all list of pairs info by limit (sort by volume in POWERCHAIN)
       operationId: getPairsListAll
       parameters:
         - name: pairs
@@ -1826,7 +1826,7 @@ paths:
     get:
       tags:
         - matchers
-      summary: 1) Get list of pairs info by serialized pairs list; 2) Get all list of pairs info by limit (sort by volume in WAVES)
+      summary: 1) Get list of pairs info by serialized pairs list; 2) Get all list of pairs info by limit (sort by volume in POWERCHAIN)
       operationId: matcherGetPairsListAll
       parameters:
         - in: path
@@ -2088,7 +2088,7 @@ components:
               type: number
             quoteVolume:
               type: number
-            volumeWaves:
+            volumePowerChain:
               type: number
             weightedAveragePrice:
               type: number

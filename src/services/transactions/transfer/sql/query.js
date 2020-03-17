@@ -12,7 +12,7 @@ const selectFromFiltered = filtered =>
           height: 't.height',
           sender: 'addr.address',
           sender_public_key: 'addr.public_key',
-          asset_id: pg.raw(`coalesce(a.asset_id,'WAVES')`),
+          asset_id: pg.raw(`coalesce(a.asset_id,'POWERCHAIN')`),
           attachment: 't.attachment',
           amount: pg.raw(
             't.amount * 10^(-coalesce(a.decimals, 8))::double precision'
@@ -52,7 +52,7 @@ const selectFromFiltered = filtered =>
       recipient: pg.raw(
         'coalesce(recipient_alias.alias, recipient_addr.address)'
       ),
-      fee_asset: pg.raw("coalesce(fa.asset_id, 'WAVES')"),
+      fee_asset: pg.raw("coalesce(fa.asset_id, 'POWERCHAIN')"),
       attachment: 't.attachment',
     })
     .from({ t: 'ts' })

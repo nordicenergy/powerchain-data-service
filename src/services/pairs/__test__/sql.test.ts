@@ -65,14 +65,14 @@ describe('sql query from pairs', () => {
 
   it('should search pairs for two assets (amount and price)', () => {
     expect(
-      search({ search_by_assets: ['BTC', 'WAVES'], matcher: '', limit: 10 })
+      search({ search_by_assets: ['BTC', 'POWERCHAIN'], matcher: '', limit: 10 })
     ).toMatchSnapshot();
   });
 
   it('should search pairs for two assets (amount and price)', () => {
     expect(
       search({
-        search_by_assets: ['¯\\_(ツ)_/¯', 'WAVES'],
+        search_by_assets: ['¯\\_(ツ)_/¯', 'POWERCHAIN'],
         matcher: '',
         limit: 10,
       })
@@ -82,7 +82,7 @@ describe('sql query from pairs', () => {
   it('should search pairs for two assets (amount and price)', () => {
     expect(
       search({
-        search_by_assets: ['¯\\_(ツ)_/¯', 'WAVES'],
+        search_by_assets: ['¯\\_(ツ)_/¯', 'POWERCHAIN'],
         match_exactly: [true, false],
         matcher: '',
         limit: 10,

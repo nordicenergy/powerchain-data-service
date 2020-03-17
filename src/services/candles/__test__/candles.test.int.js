@@ -6,7 +6,7 @@ const options = loadConfig();
 const create = require('..').default;
 
 const amountAsset = 'AnERqFRffNVrCbviXbDEdzrU6ipXCP5Y1PKpFdRnyQAy';
-const priceAsset = 'WAVES';
+const priceAsset = 'POWERCHAIN';
 
 describe('Candles', () => {
   const service = create({
